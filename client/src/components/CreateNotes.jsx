@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast as toastify } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +40,12 @@ const CreateNotes = () => {
       toast.error("failed to save");
     }
   }
+
+  useEffect(()=>{
+    const hanldeSubscribed=async()=>{
+zzzz
+    }
+  })
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-800">

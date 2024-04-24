@@ -4,7 +4,7 @@ const userSchema=mongoose.Schema({
     name:String,
     email:String,
     password:String,
-    upgradeId: { type: String, default: null },
+    isSubscribed: { type: Boolean, default: null },
     avatar:{
         type:String,
       

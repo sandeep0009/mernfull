@@ -1,31 +1,48 @@
 import note from "../models/noteSchema.js";
-
-import PDFDocument from "pdfkit"
-
+import PDFDocument from "pdfkit";
 
 export const createPost = async (req, res) => {
     try {
         const { chapter, subject, description } = req.body;
-        console.log(chapter, subject, description);
-
         const author = req.user;
-        console.log(author);
+        const isSubscribed = req.user && req.user.isSubscribed;
+        console.log(chapter,subject,description)
 
-        const newPost = new note({
-            chapter,
-            subject,
-            description,
-            author: author
-        });
+    
 
-        await newPost.save();
-        return res.status(201).json({ newPost });
+        if (isSubscribed) {
+            const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+            const newPostData = {
+                chapter,
+                subject,
+                description,
+                author: author,
+                imageUrl: imageUrl
+            };
+            const newPost = new note(newPostData);
+            await newPost.save();
+            console.log('New post created:', newPost);
+            return res.status(201).json({ newPost });
+        } else {
+            const newPostData = {
+                chapter,
+                subject,
+                description,
+                author: author
+            };
+            const newPost = new note(newPostData);
+            await newPost.save();
+            console.log('New post created without image:', newPost);
+            return res.status(201).json({ newPost });
+        }
     } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        console.error('Error creating post:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
 
+  
+  
 
 export const getNotesById=async(req,res)=>{
     try{

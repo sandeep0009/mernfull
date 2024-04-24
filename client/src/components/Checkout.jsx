@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { loadStripe } from '@stripe/stripe-js';
+import { localhost } from "./local";
 
 const Checkout = () => {
   const token = useSelector(state => state.token.token);
@@ -12,7 +13,7 @@ const Checkout = () => {
   useEffect(() => {
     const handleUserId = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/getUserId', {
+        const res = await axios.get(`localhost/getUserId`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

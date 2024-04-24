@@ -1,1 +1,1 @@
-export default localhost=""
+export const localhost=""
