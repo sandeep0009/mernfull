@@ -7,7 +7,6 @@ import DashBoard from "./components/DashBoard"
 import Protected from "./components/Protected"
 import ShowNotes from "./components/ShowNotes"
 import CreateNotes from "./components/CreateNotes"
-
 import Upgrade from "./components/Upgrade"
 import Checkout from "./components/Checkout"
 
@@ -21,7 +20,6 @@ const App = () => {
         <Route path="/signup" element={<Singup/>}/>
         <Route path="/shownotes" element={<Protected Component={ShowNotes}/>}/>
         <Route path="/createNotes" element={<Protected Component={CreateNotes}/>}/>
-        <Route path="/update/:id" element={<Protected Component={UpdateNote}/>}/>
         <Route path="/upgrade" element={<Upgrade/>}/>
         <Route path='/checkout' element={<Protected Component={Checkout}/>}/>
         
