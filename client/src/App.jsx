@@ -7,7 +7,7 @@ import DashBoard from "./components/DashBoard"
 import Protected from "./components/Protected"
 import ShowNotes from "./components/ShowNotes"
 import CreateNotes from "./components/CreateNotes"
-import UpdateNote from "./components/UpdateNote"
+
 import Upgrade from "./components/Upgrade"
 import Checkout from "./components/Checkout"
 

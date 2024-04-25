@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 import toast from 'react-hot-toast';
+import { localhost } from "./local";
 
 
 const Singup = () => {
@@ -14,7 +15,7 @@ const Singup = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/singup', { email, password,name}); 
+      const res = await axios.post(`${localhost}/api/singup`, { email, password,name}); 
       console.log(res)  
       toast.success("SingUp successful");
     } catch (error) {

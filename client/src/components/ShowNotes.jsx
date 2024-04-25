@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { GrView, GrUpdate } from 'react-icons/gr';
 import { FaArrowCircleDown } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
+import { localhost } from './local';
 
 const ShowNotes = () => {
   const token = useSelector(state => state.token.token);
@@ -12,7 +13,7 @@ const ShowNotes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/getnotes', {
+        const res = await axios.get(`${localhost}/api/getnotes`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -29,7 +30,7 @@ const ShowNotes = () => {
 
   const handleNoteUpdate = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getNotesId?id=${id}`, {
+      const res = await axios.get(`${localhost}/api/getNotesId?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +44,7 @@ const ShowNotes = () => {
 
   const handleNoteDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/deletenote?id=${id}`, {
+      await axios.delete(`${localhost}/api/deletenote?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { globalLogin } from "../features/loginSlice.js";
 import { ToastContainer, toast as toastify } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { localhost } from "./local.js";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/login', { email, password });
+      const res = await axios.post(`${localhost}/api/login`, { email, password });
       const tokens = localStorage.setItem('token', res.data.token);
       dispatch(globalLogin({ token: res.data.token }));
 

@@ -1,1 +1,1 @@
-export const localhost=""
+export const localhost="https://mernfull.vercel.app"

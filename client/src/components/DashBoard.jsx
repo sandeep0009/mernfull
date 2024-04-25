@@ -2,6 +2,7 @@ import React, { useEffect ,useState} from 'react';
 import {useSelector} from "react-redux"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { localhost } from './local';
 
 const DashBoard = () => {
   const token=useSelector(state=>state.token.token);
@@ -14,7 +15,7 @@ const DashBoard = () => {
     try{
       const handleLogin=async()=>{
 
-        const res = await axios.get('http://localhost:3000/api/userDetails', {
+        const res = await axios.get(`{localhost}/api/userDetails`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

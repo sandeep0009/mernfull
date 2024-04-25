@@ -13,7 +13,7 @@ const Checkout = () => {
   useEffect(() => {
     const handleUserId = async () => {
       try {
-        const res = await axios.get(`localhost/getUserId`, {
+        const res = await axios.get(`${localhost}/api/getUserId`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -40,7 +40,7 @@ const Checkout = () => {
 
       try {
         const res = await axios.post(
-          `http://localhost:3000/api/checkout?id=${id}`, 
+          `${localhost}/api/checkout?id=${id}`, 
           null,
           {
             headers: {

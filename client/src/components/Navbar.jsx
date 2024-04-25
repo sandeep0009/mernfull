@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { globalLogout } from "../features/loginSlice";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios"
+import { localhost } from "./local";
 
 
 function classNames(...classes) {
@@ -30,7 +31,7 @@ export default function Navbar() {
   useEffect(()=>{
 
     const handleToken=async()=>{
-      const res = await axios.get('http://localhost:3000/api/userDetails', {
+      const res = await axios.get(`${localhost}/api/userDetails`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

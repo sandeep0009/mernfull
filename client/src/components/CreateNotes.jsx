@@ -3,12 +3,14 @@ import axios from 'axios';
 import { ToastContainer, toast as toastify } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useSelector} from "react-redux"
+import { localhost } from './local';
 
 
 const CreateNotes = () => {
   const [subject, setSubject] = useState('');
   const [description, setDescription] = useState('');
   const [chapter, setChapter] = useState('');
+
  
   const token = useSelector(state => state.token.token);
   
@@ -17,7 +19,7 @@ const CreateNotes = () => {
   }
 
   const loadNotes = async () => {
-    const res = await axios.post('http://localhost:3000/api/createnotes', { subject, description, chapter },
+    const res = await axios.post(`${localhost}/api/createnotes`, { subject, description, chapter },
     {
       headers: {
         Authorization: `Bearer ${token}`, 
@@ -41,11 +43,7 @@ const CreateNotes = () => {
     }
   }
 
-  useEffect(()=>{
-    const hanldeSubscribed=async()=>{
-zzzz
-    }
-  })
+ 
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-800">
