@@ -7,6 +7,11 @@ import { checkout, webhook } from "../controllers/payment.js";
 
 const route=Router();
 
+
+route.get('/hello',(req,res)=>{
+    res.status(201).json({message:"hello"})
+})
+
 route.post('/singup',signin);
 route.post('/login',login);
 route.get('/getUserId',authVerification,getUserId)
