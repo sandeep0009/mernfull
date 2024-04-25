@@ -9,7 +9,7 @@ const route=Router();
 
 
 route.get('/hello',(req,res)=>{
-    res.status(201).json({message:"hello"})
+    res.status(201).json({name:"john"})
 })
 
 route.post('/singup',signin);
